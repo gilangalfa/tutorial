@@ -1,16 +1,20 @@
-import math
-def jump_search(arr,search):
-    interval = int(math.sqrt(len(arr)))
-    for i in range(0,len(arr),interval):
-        if arr[i] >  search:
-            chunk = i
-            break
-        if arr[i] ==  search:
-            return i
-    arr_ls = arr[chunk-interval:chunk]
-    ind = [i for i,d in enumerate(arr_ls) if d==search]
-    return chunk-interval+ind[0]
-arr = [ i for i in range(1,200,15)]
+var = ["Arsel", "Avivah", "Daiva", ["Wahyu", "Wibi"]]
+print(var)
 
-res = jump_search(arr, 121)
-print(res)
+def Search(data):
+    for i in range(len(var)):
+        if isinstance(var[i], str) and var[i] == data:
+            return i
+        elif isinstance(var[i], list) and data in var[i]:
+            return (i, var[i].index(data))
+    return None
+
+while True:
+    Find = input("Masukkan nama : ")
+    result = Search(Find)
+    if result is None:
+        print(Find, "Tidak ada dalam list.")
+    elif isinstance(result, int):
+        print(Find, "Ditemukan pada indeks ke", result)
+    else:
+        print(f"{Find} ditemukan pada indeks ke-{result[0]} pada list dan pada kolom ke", {result[1]})
