@@ -60,7 +60,7 @@ class Mengisi:
                     prev = temp
                     temp = temp.next
                 else:
-                    print(f"Barang dengan kode {subjek} tidak ditemukan.")
+                    print(f"Subjek {subjek} tidak ditemukan.")
             elif delnew == "new":
                 self.add()
                 self.show()
